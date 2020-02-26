@@ -60,10 +60,10 @@ Person.prototype.toString = function() {
 
 /*
   TASK 2
-    - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
-    - All instances built with Car:
-        + should initialize with an `tank` at 0
-        + should initialize with an `odometer` at 0
+    - [passed]Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
+    - [passed]All instances built with Car:
+        [passed]+ should initialize with an `tank` at 0
+        [passed]+ should initialize with an `odometer` at 0
     - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
@@ -77,6 +77,9 @@ function Car(model, milesPerGallon) {
   this.milesPerGallon = milesPerGallon;
   this.tank = 0;
   this.odometer = 0;
+}
+Car.prototype.fill = function(gallons){
+  return this.tank += gallons;
 }
 
 /*
@@ -95,9 +98,9 @@ function Baby() {
 
   In your own words explain the four principles for the "this" keyword below:
   1. 
-  2. 
-  3. 
-  4. 
+  2. Window Binding
+  3. Implicit Binding
+  4. Explicit Binding
 */
 
 
