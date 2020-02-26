@@ -64,7 +64,7 @@ Person.prototype.toString = function() {
     - [passed]All instances built with Car:
         [passed]+ should initialize with an `tank` at 0
         [passed]+ should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+    - [passed]Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -89,18 +89,23 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy){
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. Window Binding
-  3. Implicit Binding
-  4. Explicit Binding
+  1. Window/Global Object Binding: "this" defaults to the window object when used in the global scope.
+  2. Implicit Binding: the object to the left of the dot is what "this" refers to. 
+  3. New Binding: "this" points us to the specific object we're referencing when using a constructor function.
+  4. Explicit Binding: using .call or .apply to specify what "this" will reference
 */
 
 
